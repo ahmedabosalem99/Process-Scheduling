@@ -888,6 +888,15 @@ void STCF_algorithm(){
         }
     }
 
+    puts("\n\\n+-----+------------+-----------------+-----------------+---------------+");
+    puts("| PID | Start Time | Completion Time | Turnaround Time | Response Time |");
+    puts("+-----+------------+-----------------+-----------------+---------------+");
+
+    for(int i = 0; i < no_of_process; i++) {
+        printf("| %2d  |     %2d     |      %2d         |        %2d       |        %2d     |\n"
+                , p[i].pid, p[i].start_time, p[i].completion_time, p[i].turnaround_time, p[i].response_time);
+        puts("+-----+------------+-----------------+-----------------+---------------+");
+    }
 
     avg_turnaround_time = (float) total_turnaround_time / no_of_process;
     avg_response_time = (float) total_response_time / no_of_process;
@@ -896,11 +905,6 @@ void STCF_algorithm(){
     printf("%12s  %12s  %12s  %12s  %12s  %12s  %12s\n",
         "Process","Arrival Time","Ins count","ST","CT","TAT","RT");
     
-    for(int i = 0; i < no_of_process; i++) {
-        printf("%12d  %12d  %12d %12d  %12d  %12d  %12d\n\n",
-            p[i].pid,p[i].arrival_time,p[i].instruction_count,p[i].start_time,
-            p[i].completion_time,p[i].turnaround_time,p[i].response_time);
-    }
     printf("Average Turnaround Time = %0.2f\n",avg_turnaround_time);
     printf("Average Response Time = %0.2f\n", avg_response_time);
 
